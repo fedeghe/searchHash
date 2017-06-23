@@ -51,7 +51,6 @@ describe('Search for keys', function() {
 		it('should find 4 elements', function() {
 			assert.equal(4, results.length);
 		});
-		console.dir(results)
 	});
 	describe('search /^c/ keyed elements', function() {
 		var results = sh.forKey(objs[0], 'a');
