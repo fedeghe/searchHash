@@ -1,0 +1,29 @@
+{
+  "name": "searchhash",
+  "version": "1.0.0",
+  "description": "Simple module to search into object literals for values or keys",
+  "main": "searchash.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fedeghe/searchHash.git"
+  },
+  "keywords": [
+    "search into hash",
+    "search object",
+    "search literal"
+  ],
+  "author": "Federico Ghedina <fedeghe@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fedeghe/searchHash/issues"
+  },
+  "homepage": "https://github.com/fedeghe/searchHash#readme",
+  "devDependencies": {
+    "malta": "^3.6.4",
+    "malta-js-uglify": "^1.0.1",
+    "malta-mocha": "^1.0.6"
+  }
+}

@@ -1,0 +1,9 @@
+{
+	"EXE" : [
+		"rm -rf test searchHash.js",
+		"mkdir -p test/data",
+		"cp source/test/data/*.json test/data/"
+	],
+	"source/test/*.js" : "test -plugins=malta-mocha[dir:\"source/test\"]",
+	"source/index.js" : ". -plugins=malta-js-uglify...malta-mocha"
+}
