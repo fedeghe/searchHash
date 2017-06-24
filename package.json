@@ -1,6 +1,6 @@
 {
   "name": "searchhash",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Simple module to search into object literals for values or keys",
   "main": "searchash.js",
   "scripts": {
@@ -21,7 +21,7 @@
     "url": "https://github.com/fedeghe/searchHash/issues"
   },
   "homepage": "https://github.com/fedeghe/searchHash#readme",
-  "devDependencies": {
+  "dependencies": {
     "malta": "^3.6.4",
     "malta-js-uglify": "^1.0.1",
     "malta-mocha": "^1.0.6"
