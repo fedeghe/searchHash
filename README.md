@@ -5,22 +5,6 @@ This module allows to search a object literal for:
 - **value**
 - **key**:**value**
 
-
-## install  
-```
-> npm install searchhash
-```
-
-## build it
-```
-> cd node_modules/searchhash  
-
-> ./node_modules/malta/src/bin.js buildtr.json
-// or, if malta is globally installed
-> malta buildtr.json
-```
-
-
 RegExp can be used also, for example the following call are valid:
 
 ```
