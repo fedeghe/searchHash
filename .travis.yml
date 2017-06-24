@@ -2,3 +2,7 @@ install: npm install
 script:
   - ./node_modules/malta/src/bin.js buildtr.json
   - npm test
+language: node_js
+node_js:
+  - "iojs"
+  - "7"
