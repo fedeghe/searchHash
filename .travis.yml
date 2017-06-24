@@ -1,5 +1,5 @@
 install:
   npm install
 script:
-  ./node_modules/malta/src/bin.js build.json
+  ./node_modules/malta/src/bin.js buildtr.json
   npm test

@@ -1,6 +1,5 @@
 {
 	"EXE" : [
-		"rm -rf test searchHash.js",
 		"mkdir -p test/data",
 		"cp source/test/data/*.json test/data/"
 	],
