@@ -10,8 +10,14 @@ var searchash = (function () {
     }
     function isNode(o){
         return (
-            typeof Node === "object" ? o instanceof Node : 
-            o && typeof o === "object" && typeof o.nodeType === "number" && typeof o.nodeName==="string"
+            typeof Node === "object" ?
+                o instanceof Node
+                : 
+                (o &&
+                    typeof o === "object" &&
+                    typeof o.nodeType === "number" &&
+                    typeof o.nodeName==="string"
+                )
         );
     }
     function isElement(o){
@@ -30,9 +36,7 @@ var searchash = (function () {
      * Main searching function
      */
     function digFor(what, obj, target, limit) {
-        if(!what.match(/key|value|keyvalue/)) {
-            throw new Error('Bad param for object.digFor');
-        }
+        
         limit = ~~limit;
         
         var found = 0,
@@ -87,7 +91,7 @@ var searchash = (function () {
                 dig(obj[index], trg, p, level+1);
             },
             dig = function (o, k, path, level) {
-                if (isNode(o) || isElement(o)) return;
+                if (isNode(o) || isElement(o)) throw 'error';
                 var i, l, p, tmp;
                 
                 if (o instanceof Array) {                

@@ -2,3 +2,5 @@
 .printVersion
 searchHash.sublime-project
 searchHash.sublime-workspace
+.coveralls.yml
+/coverage
