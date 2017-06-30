@@ -41,19 +41,19 @@ describe('complete coverage', function() {
 		});
 	});
 
-	describe('keyvalue', function() {
+	describe('for keyValue key string value RegExp', function() {
 		var results = sh.forKeyValue(obj, {key : 'str', value : /str/});
 		it('should find 1 element ', function() {
 			assert.equal(1, results.length);
 		});
 	});
-	describe('keyvalue', function() {
+	describe('for keyValue key RegExp value RegExp', function() {
 		var results = sh.forKeyValue(obj, {key : /str/, value : /str/});
 		it('should find 1 element ', function() {
 			assert.equal(1, results.length);
 		});
 	});
-	describe('key', function() {
+	describe('for key RegExp', function() {
 		var results = sh.forKey(obj, /str/);
 		it('should find 1 element ', function() {
 			assert.equal(1, results.length);
