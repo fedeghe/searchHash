@@ -1,6 +1,5 @@
 var assert = require('assert'),
 	sh = require('../index.js'),
-	jsdom = require('jsdom'),
 	obj = {
 		a : 1,
 		b : {
@@ -9,15 +8,6 @@ var assert = require('assert'),
 		str : 'string' 
 	},
 	arr = [1,2,3,4,1,2,3,1,2,1];
-
-
-const { JSDOM } = jsdom;
-
-var domNode = new JSDOM(`<div>Hello world</div>`),
-	domObj = {
-		innerHTML : domNode,
-		b : 1
-	};
 
 describe('complete coverage', function() {
 	describe('should find only one element in obj due to limit param', function() {
@@ -33,14 +23,6 @@ describe('complete coverage', function() {
 			assert.equal(1, results.length);
 		});
 	});
-	describe('should not dig domNodes', function() {
-		var results = sh.forKey(domObj, 'innerHTML');
-
-		it('should find 1 element ', function() {
-			assert.equal(1, results.length);
-		});
-	});
-
 	describe('for keyValue key string value RegExp', function() {
 		var results = sh.forKeyValue(obj, {key : 'str', value : /str/});
 		it('should find 1 element ', function() {
