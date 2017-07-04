@@ -1,6 +1,6 @@
 {
   "name": "searchhash",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Simple module to search into object literals for values or keys",
   "main": "searchash.js",
   "scripts": {
