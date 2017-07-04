@@ -1,7 +1,7 @@
-var searchash = (function () {
+function () {
 
-	// some utility func
-	function jCompare(obj1, obj2) {
+    // some utility func
+    function jCompare(obj1, obj2) {
         return  !isNode(obj1)
                 && typeof JSON !== 'undefined' ?
             JSON.stringify(obj1) === JSON.stringify(obj2)
@@ -112,8 +112,8 @@ var searchash = (function () {
         return res;
     }
 
-	return {
-		forKey : function (o, k, lim) {
+    return {
+        forKey : function (o, k, lim) {
             return digFor('key', o, k, lim);
         },
         forValue : function (o, k, lim) {
@@ -122,8 +122,5 @@ var searchash = (function () {
         forKeyValue : function (o, kv, lim) {
             return digFor('keyvalue', o, kv, lim);
         }
-	};
-})();
-if (typeof exports !== 'undefined') {
-    exports = module.exports = searchash;
+    };
 }

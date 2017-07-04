@@ -3,6 +3,6 @@
 		"mkdir -p test/data",
 		"cp source/test/data/*.json test/data/"
 	],
-	"source/test/*.js" : "test -plugins=malta-mocha[dir:\"source/test\"]",
-	"source/index.js" : ". -plugins=malta-js-uglify...malta-mocha"
+	"source/test/*.js" : "test -plugins=malta-mocha",
+	"source/index.js" : ". -plugins=malta-umd[name:\"searchhash\"]...malta-js-uglify...malta-mocha"
 }
