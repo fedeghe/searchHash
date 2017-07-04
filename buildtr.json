@@ -4,5 +4,5 @@
 		"cp source/test/data/*.json test/data/"
 	],
 	"#source/test/*.js" : "test -options=verbose:0",
-	"#source/index.js" : ". -plugins=malta-js-uglify  -options=verbose:0"
+	"#source/index.js" : ". -plugins=malta-umd[name:\"searchhash\"]  -options=verbose:0"
 }
