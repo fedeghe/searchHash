@@ -21,8 +21,8 @@ var Vres = sh.forValue(obj, 'Frances'),
     rxVres = sh.forValue(obj, /^fran/i);
 
 // for key:value
-var KVres = sh.forValue(obj, {key:'name', value : 'Frances'),
-    rxKVres = sh.forValue(obj, {key:/name/, value : /^fran/i);  
+var KVres = sh.forKeyValue(obj, {key:'name', value : 'Frances'),
+    rxKVres = sh.forKeyValue(obj, {key:/name/, value : /^fran/i);  
 
 ```
 
