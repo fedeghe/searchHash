@@ -1,4 +1,4 @@
-function () {
+var searchHash = (function () {
 
     // some utility func
     function jCompare(obj1, obj2) {
@@ -123,4 +123,7 @@ function () {
             return digFor('keyvalue', o, kv, lim);
         }
     };
+})();
+if (typeof exports === "object" && typeof module !== "undefined") {
+        module.exports = searchHash;
 }
