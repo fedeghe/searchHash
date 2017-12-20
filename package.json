@@ -1,9 +1,10 @@
 {
   "name": "searchhash",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Simple module to search into object literals for values or keys",
   "main": "searchash.js",
   "scripts": {
+    "build": "node_modules/malta/src/bin.js buildnw.json",
     "test": "mocha",
     "cover": "istanbul cover _mocha",
     "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"

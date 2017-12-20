@@ -19,7 +19,7 @@ npm i
 then build it  
 
 ```
-malta build.json
+npm run build
 ```
 
 ### second test it 

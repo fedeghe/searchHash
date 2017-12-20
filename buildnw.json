@@ -1,0 +1,8 @@
+{
+	"EXE" : [
+		"mkdir -p test/data",
+		"cp source/test/data/*.json test/data/"
+	],
+	"#source/test/*.js" : "test -plugins=malta-mocha",
+	"#source/index.js" : ". -plugins=malta-mocha"
+}
