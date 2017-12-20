@@ -1,7 +1,4 @@
-/node_modules
-.printVersion
-searchHash.sublime-project
-searchHash.sublime-workspace
 .coveralls.yml
 /coverage
 /test
+/node_modules
