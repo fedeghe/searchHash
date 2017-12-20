@@ -2,10 +2,32 @@
 
 # searchHash  
 
-This module allows to search a object literal for:
+This module allows to search a object literal at any level for:
 - **key**
 - **value**
 - **key**:**value**
+
+
+### first, build it 
+
+First install all dev-deps
+
+```
+npm i
+```
+
+then build it  
+
+```
+malta build.json
+```
+
+### second test it 
+Now the test folder is out and can run them just with `npm test`
+
+
+
+### then, in case, use it
 
 RegExp can be used also, for example the following call are valid:
 
@@ -46,3 +68,4 @@ The result is always an array containing elements like the following (this is on
     level: 3                  // depth of the result
 }
 ```
+
