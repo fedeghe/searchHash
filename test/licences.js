@@ -1,7 +1,5 @@
 var assert = require('assert'),
 	sh = require('../index.js'),
-	
-
 	objs = require('./data/licenses.json');
 
 
