@@ -1,6 +1,6 @@
 install: npm install
 language: node_js
-before_script: node_modules/malta/src/bin.js build.json
+before_script: node_modules/malta/src/bin.js buildtr.json
 script: npm test
 after_success:
 - npm run coveralls
