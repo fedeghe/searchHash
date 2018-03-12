@@ -8,22 +8,19 @@ This module allows to search a object literal at any level for:
 - **key**:**value**
 
 
-### first, build it 
+### build and test
 
-First install all dev-deps
-
-```
-npm i
-```
-
-then build it  
+Install all dev-deps and build
 
 ```
-npm run build
+npm i && npm run build
 ```
 
-### second test it 
-Now the test folder is out and can run them just with `npm test`
+the test folder is generated and can run just 
+
+```
+npm test
+```
 
 
 
@@ -64,7 +61,7 @@ The result is always an array containing elements like the following (this is on
     container: 'b/b/b',       // path for the container
     parentContainer: 'b/b',   // path for the grandcontainer
     regexp: true,             // in case regexp is used in search contains 
-                              //     the match result
+                              //    the match result
     level: 3                  // depth of the result
 }
 ```
