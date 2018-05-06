@@ -25,12 +25,12 @@
   },
   "homepage": "https://github.com/fedeghe/searchHash#readme",
   "devDependencies": {
-    "malta": "^3.6.4",
-    "malta-js-uglify": "^1.0.1",
-    "malta-mocha": "^1.0.6",
-    "mocha": "~3.4.2",
+    "malta": "^3.8.4",
+    "malta-js-uglify": "^1.0.2",
+    "malta-mocha": "^1.0.9",
+    "mocha": "~5.1.1",
     "istanbul": "~0.4.5",
-    "coveralls": "~2.13.1",
+    "coveralls": "~3.0.1",
     "mocha-lcov-reporter": "~1.3.0"
   }
 }
