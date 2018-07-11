@@ -35,10 +35,15 @@ var searchHash = (function () {
     /**
      * Main searching function
      */
-    function digFor(what, obj, target, limit) {
+    function digFor(what, obj, target, opts) {
         
-        limit = ~~limit;
-        
+        opts.limit = 'limit' in opts ? ~~(opts.limit) : Infinity;
+        opts.min = 'min' in opts ? ~~(opts.min) : 0;
+        opts.max = 'max' in opts ? ~~(opts.max) : Infinity;
+
+        opts.min = opts.min < 0 ? 0 : opts.min;
+        opts.max = opts.min <= opts.max ? opts.max : opts.min;
+
         var found = 0,
             matches = {
                 key : function (k1, k2, key) {
@@ -72,9 +77,10 @@ var searchHash = (function () {
             maybeDoPush = function (path, index, trg, obj, level) {
 
                 var p = [].concat.call(path, [index]),
-                    tmp = matches(index, obj[index], trg);
+                    tmp = matches(index, obj[index], trg),
+                    inRange = opts.min <= level && level <= opts.max;
 
-                if (tmp) {
+                if (inRange && tmp) {
                     res.push({
                         obj : obj,
                         value: obj[index],
@@ -97,12 +103,12 @@ var searchHash = (function () {
                 if (o instanceof Array) {                
                     for (i = 0, l = o.length; i < l; i++) {
                         maybeDoPush(path, i, k, o, level);
-                        if (limit && limit == found) break;
+                        if (opts.limit == found) break;
                     }
                 } else if (typeof o === 'object') {
                     for (i in o) {
                         maybeDoPush(path, i, k, o, level);
-                        if (limit && limit == found) break;
+                        if (opts.limit == found) break;
                     }
                 } else {
                     return;
@@ -113,14 +119,14 @@ var searchHash = (function () {
     }
 
     return {
-        forKey : function (o, k, lim) {
-            return digFor('key', o, k, lim);
+        forKey : function (o, k, opts) {
+            return digFor('key', o, k, opts || {});
         },
-        forValue : function (o, k, lim) {
-            return digFor('value', o, k, lim);
+        forValue : function (o, k, opts) {
+            return digFor('value', o, k, opts || {});
         },
-        forKeyValue : function (o, kv, lim) {
-            return digFor('keyvalue', o, kv, lim);
+        forKeyValue : function (o, kv, opts) {
+            return digFor('keyvalue', o, kv, opts || {});
         }
     };
 })();
