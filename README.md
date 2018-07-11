@@ -1,4 +1,5 @@
-[![Coverage Status](https://coveralls.io/repos/github/fedeghe/searchHash/badge.svg?branch=master)](https://coveralls.io/github/fedeghe/searchHash?branch=master) [![Build Status](https://travis-ci.org/fedeghe/searchHash.svg?branch=master)](https://travis-ci.org/fedeghe/searchHash) [![bitHound Overall Score](https://www.bithound.io/github/fedeghe/searchHash/badges/score.svg)](https://www.bithound.io/github/fedeghe/searchHash)  
+[![Coverage Status](https://coveralls.io/repos/github/fedeghe/searchHash/badge.svg?branch=master)](https://coveralls.io/github/fedeghe/searchHash?branch=master)
+[![Build Status](https://travis-ci.org/fedeghe/searchHash.svg?branch=master)](https://travis-ci.org/fedeghe/searchHash)
 
 # searchHash  
 
@@ -46,8 +47,21 @@ var KVres = sh.forKeyValue(obj, {key:'name', value : 'Frances'),
 
 ```
 
+Some options can be passed in a third generic parameter:
 
-The result is always an array containing elements like the following (this is one result element from a forKey(4) search on a dummy obj, see test1.js ):
+- **limit** [Integer]: stop searching whenever this number of results is reached (default `Infinity`)
+- **min** [Integer]: start from this deepness level, included (default `0`)
+- **max** [Integer]: do not go deeper than that level, included (default `Infinity`)
+
+for example  
+```
+rxKres = sh.forKey(obj, /name/, { limit: 10, min: 2, max: 4});
+```
+will find at most 10 elements but only at a deepness between 2 and 4.
+
+
+
+The result is always an array containing 0 or more elements like the following (this is one result element from a forKey(4) search on a dummy obj, see test1.js ):
 
 ```
 { 
