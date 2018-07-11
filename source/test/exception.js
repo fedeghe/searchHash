@@ -11,13 +11,13 @@ var assert = require('assert'),
 
 describe('complete coverage', function() {
 	describe('should find only one element in obj due to limit param', function() {
-		var results = sh.forKey(obj, 'a', 1);
+		var results = sh.forKey(obj, 'a', {limit: 1});
 		it('should find 1 element ', function() {
 			assert.equal(1, results.length);
 		});
 	});
 	describe('should find only one element in array due to limit param', function() {
-		var results = sh.forValue(arr, 1, 1);
+		var results = sh.forValue(arr, 1, {limit: 1});
 
 		it('should find 1 element ', function() {
 			assert.equal(1, results.length);
