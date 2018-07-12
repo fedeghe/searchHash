@@ -27,7 +27,7 @@ npm test
 
 ### then, in case, use it
 
-RegExp can be used also, for example the following call are valid:
+RegExp can be used also, for example the following calls are valid:
 
 ```
 var sh = require('searchHash'),
