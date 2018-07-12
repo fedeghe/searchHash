@@ -41,4 +41,10 @@ describe('complete coverage', function() {
 			assert.equal(1, results.length);
 		});
 	});
+	describe('should throw errors', function () {
+		function f() {sh.forKey(document.createElement('div'), /str/);}
+		it('should throw 1 error', function () {
+			assert.throws(f, Error, 'Either a Literal Object either an array should be passed as second parameter')
+		});
+	});
 });

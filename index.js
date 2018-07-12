@@ -1,3 +1,6 @@
+var ERRORS= {
+    BAD2: 'Either a Literal Object either an array should be passed as second parameter'
+};
 var searchHash = (function () {
 
     // some utility func
@@ -97,7 +100,7 @@ var searchHash = (function () {
                 dig(obj[index], trg, p, level+1);
             },
             dig = function (o, k, path, level) {
-                if (isNode(o) || isElement(o)) throw 'error';
+                if (isNode(o) || isElement(o)) throw ERRORS.BAD2;
                 var i, l, p, tmp;
                 
                 if (o instanceof Array) {                
