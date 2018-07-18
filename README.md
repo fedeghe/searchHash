@@ -61,7 +61,7 @@ will find at most 10 elements but only at a deepness between 2 and 4.
 
 
 
-The result is always an array containing 0 or more elements like the following (this is one result element from a forKey(4) search on a dummy obj, see test1.js ):
+The result is always an array containing 0 or more elements like the following (this is one result element from a forKey(‘a’) search on a dummy obj, see test1.js ):
 
 ```
 { 
