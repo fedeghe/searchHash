@@ -1,35 +1,27 @@
 var ERRORS= {
-    BAD2: 'Either a Literal Object either an array should be passed as second parameter'
+    BAD1: {
+        type: 'BAD_PARAMS',
+        message: 'Either a Literal Object either an array should be passed as second parameter'
+    }
 };
 var searchHash = (function () {
 
     // some utility func
     function jCompare(obj1, obj2) {
-        return  !isNode(obj1)
-                && typeof JSON !== 'undefined' ?
-            JSON.stringify(obj1) === JSON.stringify(obj2)
-            :
-            obj1 == obj2;
+        return  JSON.stringify(obj1) === JSON.stringify(obj2);
     }
     function isNode(o){
-        return (
-            typeof Node === "object" ?
-                o instanceof Node
-                : 
-                (o &&
-                    typeof o === "object" &&
-                    typeof o.nodeType === "number" &&
-                    typeof o.nodeName==="string"
-                )
-        );
+        return o
+            && typeof o === "object"
+            && typeof o.nodeType === "number"
+            && typeof o.nodeName === "string"
     }
     function isElement(o){
-        return (
-            typeof HTMLElement === "object" ?
-                o instanceof HTMLElement
-                : //DOM2
-                o && typeof o === "object" && o !== null && o.nodeType === 1 && typeof o.nodeName==="string"
-        );
+        return o
+            && typeof o === "object"
+            && o !== null
+            && o.nodeType === 1
+            && typeof o.nodeName === "string";
     }
     function isString (o) {
         return typeof o === 'string' || o instanceof String;
@@ -39,13 +31,17 @@ var searchHash = (function () {
      * Main searching function
      */
     function digFor(what, obj, target, opts) {
-        
+        var t;
         opts.limit = 'limit' in opts ? ~~(opts.limit) : Infinity;
         opts.min = 'min' in opts ? ~~(opts.min) : 0;
         opts.max = 'max' in opts ? ~~(opts.max) : Infinity;
 
         opts.min = opts.min < 0 ? 0 : opts.min;
-        opts.max = opts.min <= opts.max ? opts.max : opts.min;
+        if (opts.max < opts.min) {
+            t = opts.min;
+            opts.min =  opts.max;
+            opts.max = t;
+        }
 
         var found = 0,
             matches = {
@@ -100,7 +96,7 @@ var searchHash = (function () {
                 dig(obj[index], trg, p, level+1);
             },
             dig = function (o, k, path, level) {
-                if (isNode(o) || isElement(o)) throw ERRORS.BAD2;
+                if (isNode(o) && isElement(o)) throw ERRORS.BAD1;
                 var i, l, p, tmp;
                 
                 if (o instanceof Array) {                
@@ -133,6 +129,7 @@ var searchHash = (function () {
         }
     };
 })();
-if (typeof exports === "object" && typeof module !== "undefined") {
-        module.exports = searchHash;
-}
+typeof exports === "object"
+&& typeof module !== "undefined"
+&& (module.exports = searchHash);
+

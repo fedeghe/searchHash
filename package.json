@@ -1,10 +1,11 @@
 {
   "name": "searchhash",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "Simple module to search into object literals for values or keys",
   "main": "searchash.js",
   "scripts": {
-    "build": "node_modules/malta/src/bin.js buildnw.json",
+    "build": "malta buildnw.json",
+    "buildev": "malta build.json",
     "test": "mocha",
     "cover": "istanbul cover _mocha",
     "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
@@ -25,12 +26,13 @@
   },
   "homepage": "https://github.com/fedeghe/searchHash#readme",
   "devDependencies": {
-    "malta": "^3.8.11",
-    "malta-js-uglify": "^1.0.2",
-    "malta-mocha": "^1.0.9",
-    "mocha": "~5.1.1",
-    "istanbul": "~0.4.5",
     "coveralls": "~3.0.1",
+    "istanbul": "~0.4.5",
+    "jsdom": "^12.2.0",
+    "malta": "^3.8.13",
+    "malta-js-uglify": "^1.0.2",
+    "malta-mocha": "^1.0.11",
+    "mocha": "~5.1.1",
     "mocha-lcov-reporter": "~1.3.0"
   }
 }
