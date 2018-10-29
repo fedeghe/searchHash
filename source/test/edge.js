@@ -16,7 +16,7 @@ describe('edge cases', function () {
         const dom = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`);
         it('should compare using === ', function () {
             try {
-                sh.forKey(dom.window.document.body, dom.window.document.body);
+                sh.forKey(dom.window.document.body, 1);
             } catch (e) {
             }
         });
