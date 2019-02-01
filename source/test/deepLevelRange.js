@@ -1,5 +1,5 @@
 var assert = require('assert'),
-	sh = require('../index.js'),
+	sh = require('../dist/index.js'),
 	objs = require('./data/deeper.json');
 
 

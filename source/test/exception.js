@@ -1,5 +1,5 @@
 var assert = require('assert'),
-	sh = require('../index.js'),
+	sh = require('../dist/index.js'),
 	obj = {
 		a : 1,
 		b : {

@@ -1,0 +1,2 @@
+SEARCHHASH
+__SIZE__

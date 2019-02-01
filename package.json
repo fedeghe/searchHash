@@ -2,14 +2,13 @@
   "name": "searchhash",
   "version": "1.0.18",
   "description": "Simple module to search into object literals for values or keys",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "build": "malta buildnw.json",
-    "buildev": "malta build.json",
+    "buildev": "malta source/buildev.json",
+    "build": "malta source/buildtr.json",
     "test": "mocha",
     "cover": "istanbul cover _mocha",
-    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
-    "postinstall": "npm run build"
+    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
@@ -31,6 +30,7 @@
     "istanbul": "~0.4.5",
     "jsdom": "^12.2.0",
     "malta": "^3.8.13",
+    "malta-header-comment": "^1.0.5",
     "malta-js-uglify": "^1.0.2",
     "malta-mocha": "^1.0.11",
     "mocha": "~5.1.1",

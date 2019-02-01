@@ -1,10 +1,11 @@
-var ERRORS= {
-    BAD1: {
-        type: 'BAD_PARAMS',
-        message: 'Either a Literal Object either an array should be passed as second parameter'
-    }
-};
+
 var searchHash = (function () {
+    var ERRORS = {
+        BAD1: {
+            type: 'BAD_PARAMS',
+            message: 'Either a Literal Object either an array should be passed as second parameter'
+        }
+    };
 
     // some utility func
     function jCompare(obj1, obj2) {

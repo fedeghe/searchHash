@@ -1,7 +1,7 @@
 var assert = require('assert'),
     JSDOM = require('jsdom').JSDOM,
     objs = require('./data/licenses.json'),
-    sh = require('../index.js');
+    sh = require('../dist/index.js');
 
 describe('edge cases', function () {
     describe('min max', function () {

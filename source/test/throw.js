@@ -1,6 +1,6 @@
 var assert = require('assert'),
     JSDOM = require('jsdom').JSDOM,
-    sh = require('../index.js');
+    sh = require('../dist/index.js');
 
 describe('throw on node', function () {
     describe('should throw an BAD_PARAMS error', function () {

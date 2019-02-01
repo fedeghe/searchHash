@@ -8,25 +8,6 @@ This module allows to search a object literal at any level for:
 - **value**
 - **key**:**value**
 
-
-### build and test
-
-Install all dev-deps and build
-
-```
-npm i && npm run build
-```
-
-the test folder is generated and can run just 
-
-```
-npm test
-```
-
-
-
-### then, in case, use it
-
 RegExp can be used also, for example the following calls are valid:
 
 ```
@@ -80,3 +61,4 @@ The result is always an array containing 0 or more elements like the following (
 }
 ```
 
+To run the tests and  know more about the implementation just README.md into the source folder.
