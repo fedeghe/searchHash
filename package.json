@@ -2,13 +2,14 @@
   "name": "searchhash",
   "version": "1.0.17",
   "description": "Simple module to search into object literals for values or keys",
-  "main": "searchash.js",
+  "main": "index.js",
   "scripts": {
     "build": "malta buildnw.json",
     "buildev": "malta build.json",
     "test": "mocha",
     "cover": "istanbul cover _mocha",
-    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
+    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
+    "postinstall": "npm run build"
   },
   "repository": {
     "type": "git",
