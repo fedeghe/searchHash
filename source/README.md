@@ -8,7 +8,7 @@ First of all you need to install all develoment dependencies:
 
 Will watch any relevant change in the source folder (tests included) and will run the tests all the times.
 
-Ren
+Run
 ```
 > npm run buildev
 ```
