@@ -1,8 +1,8 @@
-install: npm install
+install: yarn
 language: node_js
 before_script: node_modules/malta/src/bin.js source/buildtr.json
-script: npm test
+script: yarn test
 after_success:
-- npm run coveralls
+- yarn coveralls
 node_js:
   - "6.11.5"
