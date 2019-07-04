@@ -7,6 +7,7 @@
     "buildev": "malta source/buildev.json",
     "build": "malta source/buildtr.json",
     "test": "mocha",
+    "lint": "eslint source",
     "cover": "nyc npm test && nyc report --reporter=html",
     "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
   },
@@ -27,6 +28,12 @@
   "homepage": "https://github.com/fedeghe/searchHash#readme",
   "devDependencies": {
     "coveralls": "~3.0.1",
+    "eslint": "^6.0.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
     "jsdom": "^12.2.0",
     "malta": "^3.9.16",
     "malta-header-comment": "^1.0.5",
