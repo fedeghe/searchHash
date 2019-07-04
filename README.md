@@ -46,7 +46,8 @@ will find at most 10 elements but only at a deepness between 2 and 4.
 
 
 
-The result is always an array containing 0 or more elements like the following (this is one result element from a forKey(‘a’) search on a dummy obj, see test1.js ):
+The result is an object containing a always a `results` array which contains 0 or more elements,
+and a `timeElapsed` field which contains the total time spent in the search. The following is one of the `results` element from a `forKey` search on a dummy obj, see test1.js):
 
 ```
 { 

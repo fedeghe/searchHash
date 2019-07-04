@@ -5,15 +5,15 @@ var assert = require('assert'),
 
 describe('Search starts', function() {
 	describe('How many countrynames contains `az`?', function() {
-		var results = sh.forValue(objs, /az/);
+		var search = sh.forValue(objs, /az/);
 		it('should find 3 elements', function() {
-			assert.equal(3, results.length);
+			assert.equal(3, search.results.length);
 		});
 	});
 	describe('How many countrynames contains `al`?', function() {
-		var results = sh.forValue(objs, /al/);
+		var search = sh.forValue(objs, /al/);
 		it('should find 27 elements', function() {
-			assert.equal(27, results.length);
+			assert.equal(27, search.results.length);
 		});
 	});
 });

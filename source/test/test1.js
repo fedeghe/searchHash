@@ -47,15 +47,15 @@ var assert = require('assert'),
 
 describe('Search for keys', function() {
 	describe('search `a` keyed elements', function() {
-		var results = sh.forKey(objs[0], 'a');
+		var search = sh.forKey(objs[0], 'a');
 		it('should find 4 elements', function() {
-			assert.equal(4, results.length);
+			assert.equal(4, search.results.length);
 		});
 	});
 	describe('search /^c/ keyed elements', function() {
-		var results = sh.forKey(objs[0], 'a');
+		var search = sh.forKey(objs[0], 'a');
 		it('should find 4 elements', function() {
-			assert.equal(4, results.length);
+			assert.equal(4, search.results.length);
 		});
 	});
 

@@ -39,15 +39,15 @@ describe('Search deeper with level range', () => {
 		exps.forEach((exp) => {
 			
 			const opts1 = exp.opts,
-				res1 = sh.forValue(objs, /^oNe$/i, opts1);
-			it(`should find ${res1.length} elements with options ${JSON.stringify(opts1)}`, () => {
-				assert.equal(res1.length, exp.expected);
+				search1 = sh.forValue(objs, /^oNe$/i, opts1);
+			it(`should find ${search1.results.length} elements with options ${JSON.stringify(opts1)}`, () => {
+				assert.equal(search1.results.length, exp.expected);
 			});
 
 			const opts2 = Object.assign(exp.opts, {}, { limit: 1 }),
-				res2 = sh.forValue(objs, /^oNe$/i, opts2);
-			it(`should find ${res2.length} elements with options ${JSON.stringify(opts2)}`, () => {
-				assert.equal(res2.length, exp.expected > 0 ? 1 : 0);
+				search2 = sh.forValue(objs, /^oNe$/i, opts2);
+			it(`should find ${search2.results.length} elements with options ${JSON.stringify(opts2)}`, () => {
+				assert.equal(search2.results.length, exp.expected > 0 ? 1 : 0);
 			});
 		});
 	});
