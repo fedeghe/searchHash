@@ -1,6 +1,6 @@
 
 var searchHash = (function () {
-    var ERRORS = {
+    var ERRS = {
         BAD1: {
             type: 'BAD_PARAMS',
             message: 'Either a Literal Object either an array should be passed as second parameter'
@@ -27,33 +27,36 @@ var searchHash = (function () {
     function isString (o) {
         return typeof o === 'string' || o instanceof String;
     }
+    function isRegExp (o) {
+        return o instanceof RegExp;
+    }
 
     /**
      * Main searching function
      */
     function digFor (what, obj, target, opts) {
         var t,
-            startingTime = +new Date(),
-            endingTime = 0,
+            sTime = +new Date(),
+            eTime = 0,
             found = 0,
             matches = {
                 key: function (k1, k2, key) {
-                    return (isString(k1) && key instanceof RegExp)
+                    return (isString(k1) && isRegExp(key))
                         ? k1.match(key)
                         : jCompare(k1, key);
                 },
                 value: function (k1, k2, val) {
-                    return (isString(k2) && val instanceof RegExp)
+                    return (isString(k2) && isRegExp(val))
                         ? k2.match(val)
                         : jCompare(k2, val);
                 },
                 keyvalue: function (k1, k2, keyval) {
                     return (
-                        (isString(k1) && keyval.key instanceof RegExp)
+                        (isString(k1) && isRegExp(keyval.key))
                             ? k1.match(keyval.key)
                             : jCompare(k1, keyval.key)
                     ) && (
-                        (isString(k2) && keyval.value instanceof RegExp)
+                        (isString(k2) && isRegExp(keyval.value))
                             ? k2.match(keyval.value)
                             : jCompare(k2, keyval.value)
                     );
@@ -63,20 +66,21 @@ var searchHash = (function () {
                 timeElapsed: 0,
                 results: []
             },
-            maybeDoPush = function (path, index, trg, obj, level) {
+            maybePush = function (path, index, trg, obj, level) {
                 var p = [].concat.call(path, [index]),
                     tmp = matches(index, obj[index], trg),
-                    inRange = opts.min <= level && level <= opts.max;
+                    inRange = opts.min <= level && level <= opts.max,
+                    plen = p.length;
 
                 if (inRange && tmp) {
                     res.results.push({
                         obj: obj,
                         value: obj[index],
-                        key: p[p.length - 1],
-                        parentKey: p[p.length - 2],
+                        key: p[plen - 1],
+                        parentKey: p[plen - 2],
                         path: p.join('/'),
-                        container: p.slice(0, p.length - 1).join('/'),
-                        parentContainer: p.slice(0, p.length - 2).join('/'),
+                        container: p.slice(0, plen - 1).join('/'),
+                        parentContainer: p.slice(0, plen - 2).join('/'),
                         regexp: tmp,
                         level: level
                     });
@@ -85,17 +89,16 @@ var searchHash = (function () {
                 dig(obj[index], trg, p, level + 1);
             },
             dig = function (o, k, path, level) {
-                if (isNode(o) && isElement(o)) throw ERRORS.BAD1;
+                if (isNode(o) && isElement(o)) throw ERRS.BAD1;
                 var i, l;
-
                 if (o instanceof Array) {
                     for (i = 0, l = o.length; i < l; i++) {
-                        maybeDoPush(path, i, k, o, level);
+                        maybePush(path, i, k, o, level);
                         if (opts.limit === found) break;
                     }
                 } else if (typeof o === 'object') {
                     for (i in o) {
-                        maybeDoPush(path, i, k, o, level);
+                        maybePush(path, i, k, o, level);
                         if (opts.limit === found) break;
                     }
                 }
@@ -112,8 +115,8 @@ var searchHash = (function () {
             opts.max = t;
         }
         dig(obj, target, [], 0);
-        endingTime = +new Date();
-        res.timeElapsed = endingTime - startingTime;
+        eTime = +new Date();
+        res.timeElapsed = eTime - sTime;
         return res;
     }
 
