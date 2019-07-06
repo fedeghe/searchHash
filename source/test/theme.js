@@ -5,14 +5,14 @@ const assert = require('assert'),
 
 describe('Search on theme starts', () => {
 	describe('search for hex3', () => {
-		const search = sh.forValue(objs, /^#[0-9a-z]{3}$/);
+		const search = sh.forValue(objs, /^#[0-9a-z]{3}$/i);
 		it('should find 13 elements', () => {
 			assert.equal(13, search.results.length);
 		});
 	});
 
 	describe('search for hex6', () => {
-		const search = sh.forValue(objs, /^#[0-9a-z]{6}$/);
+		const search = sh.forValue(objs, /^#[0-9a-z]{6}$/i);
 		it('should find 4 elements', () => {
 			assert.equal(4, search.results.length);
 		});
