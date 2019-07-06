@@ -1,10 +1,10 @@
-var assert = require('assert'),
+const assert = require('assert'),
 	sh = require('../dist/index.js'),
 	objs = require('./data/deeper.json');
 
 
 describe('Search deeper with level range', () => {
-	describe('search for a value in a branch with more results gives the expected result', function() {
+	describe('search for a value in a branch with more results gives the expected result', () => {
 
 		const exps = [
 			{opts: { min: 0, max: 0 }, expected: 1},

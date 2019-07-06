@@ -1,4 +1,4 @@
-var assert = require('assert'),
+const assert = require('assert'),
 	sh = require('../dist/index.js'),
 	
 
@@ -45,16 +45,16 @@ var assert = require('assert'),
 
 
 
-describe('Search for keys', function() {
-	describe('search `a` keyed elements', function() {
-		var search = sh.forKey(objs[0], 'a');
-		it('should find 4 elements', function() {
+describe('Search for keys', () => {
+	describe('search `a` keyed elements', () => {
+		const search = sh.forKey(objs[0], 'a');
+		it('should find 4 elements', () => {
 			assert.equal(4, search.results.length);
 		});
 	});
-	describe('search /^c/ keyed elements', function() {
-		var search = sh.forKey(objs[0], 'a');
-		it('should find 4 elements', function() {
+	describe('search /^c/ keyed elements', () => {
+		const search = sh.forKey(objs[0], 'a');
+		it('should find 4 elements', () => {
 			assert.equal(4, search.results.length);
 		});
 	});
