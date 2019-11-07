@@ -28,7 +28,15 @@ var Vres = sh.forValue(obj, 'Frances'),
 
 // for key:value
 var KVres = sh.forKeyValue(obj, {key:'name', value : 'Frances'}),
-    rxKVres = sh.forKeyValue(obj, {key:/name/, value : /^fran/i});  
+    rxKVres = sh.forKeyValue(obj, {key:/name/, value : /^fran/i}); 
+
+// to search You can as well use a function:
+var KresFun = sh.forKey(obj, k => ['one', 'two'].includes(k)),
+    VresFun = sh.forValue(obj, v => v % 2 === 0),
+    KVresFun = sh.forKeyValue(obj, {
+        key: k => ['one', 'two'].includes(k),
+        value: v => v % 2 === 0
+    })
 
 ```
 
