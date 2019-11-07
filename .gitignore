@@ -4,3 +4,4 @@
 /test
 /.nyc_output
 .printVersion
+.buildNum.json
