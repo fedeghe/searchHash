@@ -41,24 +41,34 @@ var searchHash = (function () {
             found = 0,
             matches = {
                 key: function (k1, k2, key) {
+                    if (typeof key === 'function') {
+                        return key(k1);
+                    }
                     return (isString(k1) && isRegExp(key))
                         ? k1.match(key)
                         : jCompare(k1, key);
                 },
                 value: function (k1, k2, val) {
+                    if (typeof val === 'function') {
+                        return val(k2);
+                    }
                     return (isString(k2) && isRegExp(val))
                         ? k2.match(val)
                         : jCompare(k2, val);
                 },
                 keyvalue: function (k1, k2, keyval) {
                     return (
-                        (isString(k1) && isRegExp(keyval.key))
+                        (typeof keyval.key === 'function' && keyval.key(k1)) ||
+                        ((isString(k1) && isRegExp(keyval.key))
                             ? k1.match(keyval.key)
                             : jCompare(k1, keyval.key)
+                        )
                     ) && (
-                        (isString(k2) && isRegExp(keyval.value))
+                        (typeof keyval.value === 'function' && keyval.value(k2)) ||
+                        ((isString(k2) && isRegExp(keyval.value))
                             ? k2.match(keyval.value)
                             : jCompare(k2, keyval.value)
+                        )
                     );
                 }
             }[what],
@@ -71,7 +81,6 @@ var searchHash = (function () {
                     tmp = matches(index, obj[index], trg),
                     inRange = opts.min <= level && level <= opts.max,
                     plen = p.length;
-
                 if (inRange && tmp) {
                     res.results.push({
                         obj: obj,

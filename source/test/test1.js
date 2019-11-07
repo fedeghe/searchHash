@@ -58,6 +58,5 @@ describe('Search for keys', () => {
 			assert.equal(4, search.results.length);
 		});
 	});
-
 });
 
