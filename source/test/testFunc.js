@@ -28,5 +28,25 @@ describe('Search with function', () => {
 		it('should find 4 elements', () => {
 			assert.equal(5, search.results.length);
 		});
+    });
+    
+    describe('mixed - search key using function, value as value', () => {
+		const search = sh.forKeyValue(objs, {
+            key: k => k === 'model_name',
+            value: '911'
+        });
+		it('should find 4 elements', () => {
+			assert.equal(1, search.results.length);
+		});
+    });
+    
+    describe('mixed - search key as key, value using a function', () => {
+		const search = sh.forKeyValue(objs, {
+            key: 'model_name',
+            value: v => `${v}`.match(/93/)
+        });
+		it('should find 4 elements', () => {
+			assert.equal(5, search.results.length);
+		});
 	});
 });
