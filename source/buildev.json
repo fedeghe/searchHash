@@ -1,8 +1,8 @@
 {
-	"EXE" : [
-		"mkdir -p test/data dist",
-		"cp source/test/data/*.json test/data/"
-	],
-	"source/test/*.js" : "test -plugins=malta-mocha",
-	"source/index.js" : "dist/ -plugins=malta-mocha"
+    "EXE": [
+        "mkdir -p test/data dist",
+        "cp source/test/data/*.json test/data/"
+    ],
+    "source/test/*.js": "test -plugins=malta-mocha",
+    "source/index.js": "dist"
 }
