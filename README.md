@@ -36,7 +36,7 @@ var KresFun = sh.forKey(obj, k => ['one', 'two'].includes(k)),
     KVresFun = sh.forKeyValue(obj, {
         key: k => ['one', 'two'].includes(k),
         value: v => v % 2 === 0
-    })
+    }) 
 
 ```
 
