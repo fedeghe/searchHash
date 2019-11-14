@@ -76,8 +76,8 @@ var searchHash = (function () {
                 timeElapsed: 0,
                 results: []
             },
-            maybePush = function (path, index, trg, obj, level) {
-                var p = [].concat.call(path, [index]),
+            maybePush = function (objpath, index, trg, obj, level) {
+                var p = [].concat.call(objpath, [index]),
                     tmp = matches(index, obj[index], trg),
                     inRange = opts.min <= level && level <= opts.max,
                     plen = p.length;
@@ -97,17 +97,17 @@ var searchHash = (function () {
                 }
                 dig(obj[index], trg, p, level + 1);
             },
-            dig = function (o, k, path, level) {
+            dig = function (o, k, objpath, level) {
                 if (isNode(o) && isElement(o)) throw ERRS.BAD1;
                 var i, l;
                 if (o instanceof Array) {
                     for (i = 0, l = o.length; i < l; i++) {
-                        maybePush(path, i, k, o, level);
+                        maybePush(objpath, i, k, o, level);
                         if (opts.limit === found) break;
                     }
                 } else if (typeof o === 'object') {
                     for (i in o) {
-                        maybePush(path, i, k, o, level);
+                        maybePush(objpath, i, k, o, level);
                         if (opts.limit === found) break;
                     }
                 }
