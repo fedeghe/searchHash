@@ -1461,15 +1461,15 @@ malta@4.0.4:
   resolved "https://registry.yarnpkg.com/malta/-/malta-4.0.4.tgz#9ab860454307e57479daad3452c7abc62deddc4b"
   integrity sha512-7+6zUDM2Az4t51mdLFk6XMgheExGNhl3Kwgp/hVp07bcJylu8VKwXwxVdFujxRxjxJmwGUHdjV9ABgaEpQuL0Q==
 
-malta@^3.9.16:
-  version "3.9.17"
-  resolved "https://registry.yarnpkg.com/malta/-/malta-3.9.17.tgz#a8e5cebb8616c2040c52ac9b6f835ed656773fd0"
-  integrity sha512-dmk3pHFGtu2XddA7djUQRHsFTzPiSpyOo+u+VCebUxexSYEPYZ3b+QwvSEzn4rXsUvU+ra6I+5yfb5i9dpDvjg==
-
 malta@^4.0.4:
   version "4.0.5"
   resolved "https://registry.yarnpkg.com/malta/-/malta-4.0.5.tgz#e013ed4c9d071ac8da6fc5a441af39212185fd95"
   integrity sha512-Xdvrr49kMuBydccGEuk1mRxUU6VHJLTndHS1maquQvB+yj8zWyBolmljcBWrC+4puo4bUm7kfsxRoJEZX7xH4Q==
+
+malta@^4.0.6:
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/malta/-/malta-4.0.6.tgz#5c1ae755a525267d72c64bb0e60476810e0ea450"
+  integrity sha512-v2IXUTeTEcAS9KCj94HBO28kmPM5tgAkO53SxnFBV0MrBAzNkPDDXE7xNxhupvARVroxYMdP8qPbVT1zkLjLyQ==
 
 merge-source-map@^1.1.0:
   version "1.1.0"
