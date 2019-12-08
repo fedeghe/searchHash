@@ -108,17 +108,18 @@ var searchHash = (function () {
                 dig(obj[index], trg, p, level + 1);
             },
             dig = function (o, k, objpath, level) {
-                if (isNode(o) && isElement(o)) throw ERRS.BAD1;
                 var i, l;
-                if (o instanceof Array) {
-                    for (i = 0, l = o.length; i < l; i++) {
-                        maybePush(objpath, i, k, o, level);
-                        if (opts.limit === found) break;
-                    }
-                } else if (typeof o === 'object') {
-                    for (i in o) {
-                        maybePush(objpath, i, k, o, level);
-                        if (opts.limit === found) break;
+                if (!(isNode(o) && isElement(o))) {
+                    if (o instanceof Array) {
+                        for (i = 0, l = o.length; i < l; i++) {
+                            maybePush(objpath, i, k, o, level);
+                            if (opts.limit === found) break;
+                        }
+                    } else if (typeof o === 'object') {
+                        for (i in o) {
+                            maybePush(objpath, i, k, o, level);
+                            if (opts.limit === found) break;
+                        }
                     }
                 }
             };
