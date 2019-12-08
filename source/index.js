@@ -12,17 +12,27 @@ var searchHash = (function () {
         return JSON.stringify(obj1) === JSON.stringify(obj2);
     }
     function isNode (o) {
-        return o &&
-            typeof o === 'object' &&
-            typeof o.nodeType === 'number' &&
-            typeof o.nodeName === 'string';
+        return (
+            typeof Node === 'object'
+                ? o instanceof W.Node
+                : o &&
+                    typeof o === 'object' &&
+                    typeof o.nodeType === 'number' &&
+                    typeof o.nodeName === 'string'
+        );
     }
+
+    // Returns true if it is a DOM element
+    //
     function isElement (o) {
-        return o &&
-            typeof o === 'object' &&
-            o !== null &&
-            o.nodeType === 1 &&
-            typeof o.nodeName === 'string';
+        return (
+            typeof HTMLElement === 'object'
+                ? o instanceof W.HTMLElement
+                : o &&
+                    typeof o === 'object' &&
+                    o !== null && o.nodeType === 1 &&
+                    typeof o.nodeName === 'string'
+        );
     }
     function isString (o) {
         return typeof o === 'string' || o instanceof String;
