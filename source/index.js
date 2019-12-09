@@ -9,6 +9,9 @@ var searchHash = (function () {
 
     // some utility func
     function jCompare (obj1, obj2) {
+        if (isElement(obj1)) {
+            return obj1 === obj2;
+        }
         return JSON.stringify(obj1) === JSON.stringify(obj2);
     }
     function isElement (o) {

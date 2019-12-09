@@ -2,7 +2,7 @@
 SEARCHHASH
 ~1KB
 */
-var searchHash=function(){function e(e,n){return JSON.stringify(e)===JSON.stringify(n)}function n(e){
+var searchHash=function(){function e(e,t){return n(e)?e===t:JSON.stringify(e)===JSON.stringify(t)}function n(e){
 return e&&"object"==typeof e&&null!==e&&(1===e.nodeType||11===e.nodeType)&&"string"==typeof e.nodeName}function t(e){return"string"==typeof e||e instanceof String}function i(e){
 return e instanceof RegExp}function o(o,r,u,a){var f,c=+new Date,l=0,m=0,y={key:function(n,o,r){return"function"==typeof r?r(n):t(n)&&i(r)?n.match(r):e(n,r)},value:function(n,o,r){
 return"function"==typeof r?r(o):t(o)&&i(r)?o.match(r):e(o,r)},keyvalue:function(n,o,r){
