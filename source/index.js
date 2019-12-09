@@ -92,7 +92,7 @@ var searchHash = (function () {
                 dig(obj[index], trg, p, level + 1);
             },
             dig = function (o, k, objpath, level) {
-                if (isElement(o)) throw ERRS.BAD1;
+                if (isElement(o)) return;
                 var i, l;
                 if (o instanceof Array) {
                     for (i = 0, l = o.length; i < l; i++) {
