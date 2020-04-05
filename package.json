@@ -36,7 +36,7 @@
         "eslint-plugin-standard": "^4.0.0",
         "jsdom": "^12.2.0",
         "lodash": "^4.17.15",
-        "malta": "^4.0.6",
+        "malta": "4.1.17",
         "malta-header-comment": "^1.0.5",
         "malta-js-uglify": "^1.0.2",
         "malta-mocha": "^1.0.11",
