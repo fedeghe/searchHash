@@ -1,6 +1,5 @@
 {
     "EXE": [
-        "rm -rf test dist",
         "mkdir -p test/data dist",
         "cp source/test/data/*.json test/data/"
     ],
