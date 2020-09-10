@@ -1,3 +1,4 @@
+'use strict';
 /*
 SEARCHHASH
 ~1KB

@@ -1,8 +1,9 @@
 {
-	"EXE" : [
-		"mkdir -p test/data dist",
-		"cp source/test/data/*.json test/data/"
-	],
-	"#source/test/*.js" : "test -options=verbose:0",
-	"#source/index.js" : "dist/. -plugins=malta-js-uglify[compress:true,output:{max_line_len:200}]...malta-header-comment[name:\"source/head.txt\"] -options=verbose:0"
+    "EXE": [
+        "rm -rf test dist",
+        "mkdir -p test/data dist",
+        "cp source/test/data/*.json test/data/"
+    ],
+    "#source/test/*.js": "test -options=verbose:0",
+    "#source/index.js": "dist/. -plugins=malta-js-uglify[compress:true,output:{max_line_len:200}]...malta-header-comment[name:\"source/head.txt\"] -options=verbose:0"
 }
