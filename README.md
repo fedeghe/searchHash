@@ -38,7 +38,7 @@ var KresFun = sh.forKey(obj, k => ['one', 'two'].includes(k)),
         value: v => v % 2 === 0
     }) 
 
-```
+``` 
 
 Some options can be passed in a third generic parameter:
 
