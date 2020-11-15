@@ -1,16 +1,118 @@
-'use strict';
-/*
-SEARCHHASH
-~1KB
-*/
-var searchHash=function(){function e(e,t){return n(e)?e===t:JSON.stringify(e)===JSON.stringify(t)}function n(e){
-return e&&"object"==typeof e&&null!==e&&(1===e.nodeType||11===e.nodeType)&&"string"==typeof e.nodeName}function t(e){return"string"==typeof e||e instanceof String}function i(e){
-return e instanceof RegExp}function o(o,r,u,a){var f,c=+new Date,l=0,m=0,y={key:function(n,o,r){return"function"==typeof r?r(n):t(n)&&i(r)?n.match(r):e(n,r)},value:function(n,o,r){
-return"function"==typeof r?r(o):t(o)&&i(r)?o.match(r):e(o,r)},keyvalue:function(n,o,r){
-return("function"==typeof r.key&&r.key(n)||(t(n)&&i(r.key)?n.match(r.key):e(n,r.key)))&&("function"==typeof r.value&&r.value(o)||(t(o)&&i(r.value)?o.match(r.value):e(o,r.value)))}}[o],s={
-timeElapsed:0,results:[]},p=function(e,n,t,i,o){var r=[].concat.call(e,[n]),u=y(n,i[n],t),f=a.min<=o&&o<=a.max,c=r.length;f&&u&&(s.results.push({obj:i,value:i[n],key:r[c-1],parentKey:r[c-2],
-path:r.join("/"),container:r.slice(0,c-1).join("/"),parentContainer:r.slice(0,c-2).join("/"),regexp:u,level:o}),m++),v(i[n],t,r,o+1)},v=function(e,t,i,o){if(!n(e)){var r,u
-;if(e instanceof Array)for(r=0,u=e.length;r<u&&(p(i,r,t,e,o),a.limit!==m);r++);else if("object"==typeof e)for(r in e)if(p(i,r,t,e,o),a.limit===m)break}};return a.limit="limit"in a?~~a.limit:1/0,
-a.min="min"in a?~~a.min:0,a.max="max"in a?~~a.max:1/0,a.min=a.min<0?0:a.min,a.max<a.min&&(f=a.min,a.min=a.max,a.max=f),v(r,u,[],0),l=+new Date,s.timeElapsed=l-c,s}return{forKey:function(e,n,t){
-return o("key",e,n,t||{})},forValue:function(e,n,t){return o("value",e,n,t||{})},forKeyValue:function(e,n,t){return o("keyvalue",e,n,t||{})}}}()
-;"object"==typeof exports&&"undefined"!=typeof module&&(module.exports=searchHash);
+
+var searchHash = (function () {
+    // some utility func
+    function jCompare (obj1, obj2) {
+        // if (isElement(obj1)) {
+        //     return obj1 === obj2;
+        // }
+        return JSON.stringify(obj1) === JSON.stringify(obj2);
+    }
+    // function isElement (o) {
+    //     return o &&
+    //         typeof o === 'object' &&
+    //         o !== null &&
+    //         (o.nodeType === 1 || o.nodeType === 11) &&
+    //         typeof o.nodeName === 'string';
+    // }
+    function isString (o) {
+        return typeof o === 'string' || o instanceof String;
+    }
+    function isRegExp (o) {
+        return o instanceof RegExp;
+    }
+
+    /**
+     * Main searching function
+     */
+    function digFor (what, obj, target, opts) {
+        var t,
+            found = 0,
+            strOrRx = function (x, y) {
+                return (isString(x) && isRegExp(y))
+                    ? x.match(y)
+                    : jCompare(x, y);
+            },
+            matches = {
+                key: function (k1, k2, key) {
+                    return typeof key === 'function' ? key(k1) : strOrRx(k1, key);
+                },
+                value: function (k1, k2, val) {
+                    return typeof val === 'function' ? val(k2) : strOrRx(k2, val);
+                },
+                keyvalue: function (k1, k2, keyval) {
+                    return (
+                        (typeof keyval.key === 'function' && keyval.key(k1)) ||
+                        strOrRx(k1, keyval.key)
+                    ) && (
+                        (typeof keyval.value === 'function' && keyval.value(k2)) ||
+                        strOrRx(k2, keyval.value)
+                    );
+                }
+            }[what],
+            res = [],
+            maybePush = function (objpath, index, trg, obj, level) {
+                var p = [].concat.call(objpath, [index]),
+                    tmp = matches(index, obj[index], trg),
+                    inRange = opts.min <= level && level <= opts.max,
+                    plen = p.length;
+                if (inRange && tmp) {
+                    res.push({
+                        obj: obj,
+                        value: obj[index],
+                        key: p[plen - 1],
+                        parentKey: p[plen - 2],
+                        path: p.join('/'),
+                        container: p.slice(0, plen - 1).join('/'),
+                        parentContainer: p.slice(0, plen - 2).join('/'),
+                        regexp: tmp,
+                        level: level
+                    });
+                    found++;
+                }
+                dig(obj[index], trg, p, level + 1);
+            },
+            dig = function (o, k, objpath, level) {
+                // if (isElement(o)) return;
+                var i, l;
+                if (o instanceof Array) {
+                    for (i = 0, l = o.length; i < l; i++) {
+                        maybePush(objpath, i, k, o, level);
+                        if (opts.limit === found) break;
+                    }
+                } else if (typeof o === 'object') {
+                    for (i in o) {
+                        maybePush(objpath, i, k, o, level);
+                        if (opts.limit === found) break;
+                    }
+                }
+            };
+
+        opts.limit = 'limit' in opts ? ~~(opts.limit) : Infinity;
+        opts.min = 'min' in opts ? ~~(opts.min) : 0;
+        opts.max = 'max' in opts ? ~~(opts.max) : Infinity;
+        if (opts.limit === 0) return res;
+        opts.min = opts.min < 0 ? 0 : opts.min;
+        if (opts.max < opts.min) {
+            t = opts.min;
+            opts.min = opts.max;
+            opts.max = t;
+        }
+        dig(obj, target, [], 0);
+        return res;
+    }
+
+    return {
+        forKey: function (o, k, opts) {
+            return digFor('key', o, k, opts || {});
+        },
+        forValue: function (o, k, opts) {
+            return digFor('value', o, k, opts || {});
+        },
+        forKeyValue: function (o, kv, opts) {
+            return digFor('keyvalue', o, kv, opts || {});
+        }
+    };
+})();
+typeof exports === 'object' &&
+    typeof module !== 'undefined' &&
+    (module.exports = searchHash);

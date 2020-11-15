@@ -1,56 +1,41 @@
 [
     {
-        "name": "Federico",
-        "info": {
-            "hobbies": [
-                {
-                    "name": "ede"
-                }
-            ]
-        }
-    },{
-        "name": "Gabriele",
-        "info": {
-            "hobbies": [
-                {
-                    "name": "ede"
-                }
-            ]
-        }
-    },
-    "one",
-    {
-        "a": "ONE",
-        "b": {
-            "a1": "ONE",
-            "b1": {
-                "a2": "one",
-                "b2": {
-                    "a3": "one"
-                },
-                "x": [
-                    "ONE",
-                    "two",
-                    "tone",
-                    "one"
-                ],
-                "a": {
-                    "b": {
-                        "c": {
-                            "d": {
-                                "e": {
-                                    "f": {
-                                        "g": {
-                                            "h": "oNE",
-                                            "t" : "twone"
-                                        },
-                                        "two" :"two"
+        "a": "it's an a",
+        "a1": "it's an a1",
+        "_a1": "it's an _a1",
+        "b": {},
+        "c": null,
+        "d": {
+            "a": {
+                "n": null,
+                "b": {
+                    "c": {
+                        "d": {
+                            "e": {
+                                "s": null,
+                                "f": {
+                                    "g": {
+                                        "h": [
+                                            {
+                                                "a": 1,
+                                                "w": null,
+                                                "z": {
+                                                    "a": false
+                                                }
+                                            },
+                                            {
+                                                "1a": "name"
+                                            }
+                                        ]
                                     }
                                 }
-                            }
+                            },
+                            "name": "y"
                         }
-                    }
-                }
+                    },
+                    "x": "name"
+                },
+                "name": "x"
             }
         }
     }

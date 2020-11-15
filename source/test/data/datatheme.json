@@ -1,0 +1,69 @@
+[{
+    "default": {
+        "primary": {
+            "lighest": "#fff",
+            "light": "#eee",
+            "mid": "#ddd",
+            "semidark": "#aaa",
+            "lightdark": "#888",
+            "dark": "#555",
+            "superdark": "#333",
+            "darkest": "#000"
+        },
+        "secondary": {
+            "lighest": "#fffeee",
+            "light": "#eee",
+            "mid": "#ddd",
+            "semidark": "#aaa",
+            "lightdark": "#888eee",
+            "dark": "#555",
+            "superdark": "#333",
+            "darkest": "#000eee"
+        },
+        "text": "rgba(1,2,3)",
+        "backgroundColor": "rgba(10,20,30)",
+        "one": {
+            "two": {
+                "three": {
+                    "four": {
+                        "five": "rgb(12,23,34)"
+                    }
+                }
+            }
+        }
+    },
+    "black": {
+        "primary": {
+            "lighest": "rgba(250,250,250)",
+            "light": "rgba(230,230,230)",
+            "mid": "rgba(200,200,200)",
+            "semidark": "rgba(100,100,100)",
+            "lightdark": "rgba(50,50,50)",
+            "dark": "rgba(20,20,20)",
+            "superdark": "rgba(10,10,10)",
+            "darkest": "rgba(0,0,0)"
+        },
+        "secondary": {
+            "lighest": "rgb(250,250,250)",
+            "light": "rgb(230,230,230)",
+            "mid": "rgb(200,200,200)",
+            "semidark": "rgb(100,100,100)",
+            "lightdark": "rgb(50,50,50)",
+            "dark": "rgb(20,20,20)",
+            "superdark": "rgb(10,10,10)",
+            "darkest": "rgb(0,0,0)"
+        },
+        "text": "rgba(1,2,3)",
+        "backgroundColor": "rgba(10,20,30)",
+        "one": {
+            "two": {
+                "three": {
+                    "four": {
+                        "five": "rgb(12,23,34)"
+                    },
+                    "four2": "#423423"
+                }
+            }
+        }
+    }
+}]

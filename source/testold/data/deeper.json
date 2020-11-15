@@ -1,0 +1,57 @@
+[
+    {
+        "name": "Federico",
+        "info": {
+            "hobbies": [
+                {
+                    "name": "ede"
+                }
+            ]
+        }
+    },{
+        "name": "Gabriele",
+        "info": {
+            "hobbies": [
+                {
+                    "name": "ede"
+                }
+            ]
+        }
+    },
+    "one",
+    {
+        "a": "ONE",
+        "b": {
+            "a1": "ONE",
+            "b1": {
+                "a2": "one",
+                "b2": {
+                    "a3": "one"
+                },
+                "x": [
+                    "ONE",
+                    "two",
+                    "tone",
+                    "one"
+                ],
+                "a": {
+                    "b": {
+                        "c": {
+                            "d": {
+                                "e": {
+                                    "f": {
+                                        "g": {
+                                            "h": "oNE",
+                                            "t" : "twone"
+                                        },
+                                        "two" :"two"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+]
