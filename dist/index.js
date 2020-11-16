@@ -3,14 +3,13 @@
 SEARCHHASH
 ~1KB
 */
-var searchHash=function(){function e(e,t){return n(e)?e===t:JSON.stringify(e)===JSON.stringify(t)}function n(e){
-return e&&"object"==typeof e&&null!==e&&(1===e.nodeType||11===e.nodeType)&&"string"==typeof e.nodeName}function t(e){return"string"==typeof e||e instanceof String}function i(e){
-return e instanceof RegExp}function o(o,r,u,a){var f,c=+new Date,l=0,m=0,y={key:function(n,o,r){return"function"==typeof r?r(n):t(n)&&i(r)?n.match(r):e(n,r)},value:function(n,o,r){
-return"function"==typeof r?r(o):t(o)&&i(r)?o.match(r):e(o,r)},keyvalue:function(n,o,r){
-return("function"==typeof r.key&&r.key(n)||(t(n)&&i(r.key)?n.match(r.key):e(n,r.key)))&&("function"==typeof r.value&&r.value(o)||(t(o)&&i(r.value)?o.match(r.value):e(o,r.value)))}}[o],s={
-timeElapsed:0,results:[]},p=function(e,n,t,i,o){var r=[].concat.call(e,[n]),u=y(n,i[n],t),f=a.min<=o&&o<=a.max,c=r.length;f&&u&&(s.results.push({obj:i,value:i[n],key:r[c-1],parentKey:r[c-2],
-path:r.join("/"),container:r.slice(0,c-1).join("/"),parentContainer:r.slice(0,c-2).join("/"),regexp:u,level:o}),m++),v(i[n],t,r,o+1)},v=function(e,t,i,o){if(!n(e)){var r,u
-;if(e instanceof Array)for(r=0,u=e.length;r<u&&(p(i,r,t,e,o),a.limit!==m);r++);else if("object"==typeof e)for(r in e)if(p(i,r,t,e,o),a.limit===m)break}};return a.limit="limit"in a?~~a.limit:1/0,
-a.min="min"in a?~~a.min:0,a.max="max"in a?~~a.max:1/0,a.min=a.min<0?0:a.min,a.max<a.min&&(f=a.min,a.min=a.max,a.max=f),v(r,u,[],0),l=+new Date,s.timeElapsed=l-c,s}return{forKey:function(e,n,t){
-return o("key",e,n,t||{})},forValue:function(e,n,t){return o("value",e,n,t||{})},forKeyValue:function(e,n,t){return o("keyvalue",e,n,t||{})}}}()
-;"object"==typeof exports&&"undefined"!=typeof module&&(module.exports=searchHash);
+var searchHash=function(){function n(n,t){return JSON.stringify(n)===JSON.stringify(t)&&!e(t)}function t(n){return"string"==typeof n||n instanceof String}function e(n){return n instanceof RegExp}
+function i(n){var t=String(n)!==n,e=n===Object(n),i="function"!=typeof n,r={}.toString.call(n).match(/\[object\sObject\]/);return t&&e&&i&&!(!r||!r.length)}function r(n){
+var t={}.toString.call(n).match(/\[object\sArray\]/);return String(n)!==n&&!(!t||!t.length)}function o(o,a,u,c){if(!i(a)&&!r(a))throw new Error("BAD PARAM: must search into an object or an array")
+;var f,l=0,m=function(i,r){return t(i)&&e(r)?i.match(r):n(i,r)},y={key:function(n,t,e){return"function"==typeof e?e(n):m(n,e)},value:function(n,t,e){return"function"==typeof e?e(t):m(t,e)},
+keyvalue:function(n,t,e){return("function"==typeof e.key&&e.key(n)||m(n,e.key))&&("function"==typeof e.value&&e.value(t)||m(t,e.value))}}[o],s=[],p=function(n,t,e,i,r){
+var o=[].concat.call(n,[t]),a=y(t,i[t],e),u=c.min<=r&&r<=c.max,f=o.length;u&&a&&(s.push({obj:i,value:i[t],key:o[f-1],parentKey:o[f-2],path:o.join("/"),container:o.slice(0,f-1).join("/"),
+parentContainer:o.slice(0,f-2).join("/"),regexp:a,level:r}),l++),h(i[t],e,o,r+1)},h=function(n,t,e,i){var r,o;if(n instanceof Array)for(r=0,o=n.length;r<o&&(p(e,r,t,n,i),
+c.limit!==l);r++);else if("object"==typeof n)for(r in n)if(p(e,r,t,n,i),c.limit===l)break};return c.limit="limit"in c?~~c.limit:1/0,c.min="min"in c?~~c.min:0,c.max="max"in c?~~c.max:1/0,
+0===c.limit?s:(c.min=c.min<0?0:c.min,c.max<c.min&&(f=c.min,c.min=c.max,c.max=f),h(a,u,[],0),s)}return{forKey:function(n,t,e){return o("key",n,t,e||{})},forValue:function(n,t,e){
+return o("value",n,t,e||{})},forKeyValue:function(n,t,e){return o("keyvalue",n,t,e||{})}}}();"object"==typeof exports&&"undefined"!=typeof module&&(module.exports=searchHash);

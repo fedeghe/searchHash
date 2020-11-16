@@ -1,24 +1,32 @@
 const assert = require('assert'),
-    JSDOM = require('jsdom').JSDOM,
-    objs = require('./data/licenses.json'),
-    sh = require('../dist/index.js');
+    sh = require('../dist/index.js'),
+    objs = require('./data/deeper.json');
 
-describe('edge cases', () => {
-    describe('min max', () => {
-        it('should find 114 elements ', () => {
-            const search = sh.forKey(objs, 'note', { min:3, max: 1});
-            assert.equal(search.results.length, 114)
+describe('Search starts', () => {
+    describe('few edge cases', () => {
+        it('should find 2 elements', () => {
+            const search = sh.forValue({}, 'y');
+            assert.strictEqual(0, search.length);
         });
-        it('should as well find 114 elements ', () => {
-            const search = sh.forKey(objs, 'note', { min: -1, max: 3 });
-            assert.equal(search.results.length, 114)
+        it('should find 2 elements', () => {
+            const search = sh.forValue(objs, {}, {min: 2, max: 1});
+            assert.strictEqual(1, search.length);
         });
-        const dom = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`);
-        it('should compare using === ', () => {
-            try {
-                sh.forKey(dom.window.document.body, 1);
-            } catch (e) {
-            }
+        it('should find 2 elements', () => {
+            const search = sh.forValue(objs, {}, {min: -1, max: 1});
+            assert.strictEqual(1, search.length);
+        });
+        describe('should throw an error', () => {
+            const f = () => sh.forKey('str', /str/);
+            
+            it('should throw 1 error', () => {
+                try {
+                    f()
+                } catch (e) {
+                    assert.strictEqual(e.message, 'BAD PARAM: must search into an object or an array');
+                }
+                
+            });
         });
     });
 });
