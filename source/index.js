@@ -1,16 +1,18 @@
-
-var searchHash = (function () {
+var searchHash = (function() {
     // some utility func
-    function jCompare (obj1, obj2) {
+    function jCompare(obj1, obj2) {
         return JSON.stringify(obj1) === JSON.stringify(obj2) && !isRegExp(obj2);
     }
-    function isString (o) {
+
+    function isString(o) {
         return typeof o === 'string' || o instanceof String;
     }
-    function isRegExp (o) {
+
+    function isRegExp(o) {
         return o instanceof RegExp;
     }
-    function isObj (o) {
+
+    function isObj(o) {
         var t0 = String(o) !== o,
             t1 = o === Object(o),
             t2 = typeof o !== 'function',
@@ -18,31 +20,39 @@ var searchHash = (function () {
         return t0 && t1 && t2 && !!(t3 && t3.length);
     }
 
-    function isArr (o) {
+    function isArr(o) {
         var t2 = ({}).toString.call(o).match(/\[object\sArray\]/);
         return String(o) !== o && !!(t2 && t2.length);
+    }
+
+    function isElement(o) {
+        return (
+            o && typeof o === 'object' && // DOM2
+            typeof o.nodeType !== 'undefined' && o.nodeType === 1 &&
+            typeof o.nodeName === 'string'
+        );
     }
 
     /**
      * Main searching function
      */
-    function digFor (what, obj, target, opts) {
+    function digFor(what, obj, target, opts) {
         if (!isObj(obj) && !isArr(obj)) throw new Error('BAD PARAM: must search into an object or an array');
         var t,
             found = 0,
-            strOrRx = function (x, y) {
-                return (isString(x) && isRegExp(y))
-                    ? x.match(y)
-                    : jCompare(x, y);
+            strOrRx = function(x, y) {
+                return (isString(x) && isRegExp(y)) ?
+                    x.match(y) :
+                    jCompare(x, y);
             },
             matches = {
-                key: function (k1, k2, key) {
+                key: function(k1, k2, key) {
                     return typeof key === 'function' ? key(k1) : strOrRx(k1, key);
                 },
-                value: function (k1, k2, val) {
+                value: function(k1, k2, val) {
                     return typeof val === 'function' ? val(k2) : strOrRx(k2, val);
                 },
-                keyvalue: function (k1, k2, keyval) {
+                keyvalue: function(k1, k2, keyval) {
                     return (
                         (typeof keyval.key === 'function' && keyval.key(k1)) ||
                         strOrRx(k1, keyval.key)
@@ -53,7 +63,7 @@ var searchHash = (function () {
                 }
             }[what],
             res = [],
-            maybePush = function (objpath, index, trg, obj, level) {
+            maybePush = function(objpath, index, trg, obj, level) {
                 var p = [].concat.call(objpath, [index]),
                     tmp = matches(index, obj[index], trg),
                     inRange = opts.min <= level && level <= opts.max,
@@ -74,8 +84,11 @@ var searchHash = (function () {
                 }
                 dig(obj[index], trg, p, level + 1);
             },
-            dig = function (o, k, objpath, level) {
-                // if (isElement(o)) return;
+            dig = function(o, k, objpath, level) {
+                if (isElement(o)) {
+                    console.log('ELEMENT');
+                    return;
+                }
                 var i, l;
                 if (o instanceof Array) {
                     for (i = 0, l = o.length; i < l; i++) {
@@ -105,13 +118,13 @@ var searchHash = (function () {
     }
 
     return {
-        forKey: function (o, k, opts) {
+        forKey: function(o, k, opts) {
             return digFor('key', o, k, opts || {});
         },
-        forValue: function (o, k, opts) {
+        forValue: function(o, k, opts) {
             return digFor('value', o, k, opts || {});
         },
-        forKeyValue: function (o, kv, opts) {
+        forKeyValue: function(o, kv, opts) {
             return digFor('keyvalue', o, kv, opts || {});
         }
     };

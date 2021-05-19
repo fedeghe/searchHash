@@ -54,7 +54,7 @@ will find at most 10 elements but only at a deepness between 2 and 4.
 
 
 
-The result is an object containing a an array containing 0 or more elements. The following is one of the `results` element from a `forKey` search on a dummy obj, see test1.js):
+The result is an array containing 0 or more elements. The following is one of the element from a `forKey` search on a dummy obj, see test1.js):
 
 ```
 { 
