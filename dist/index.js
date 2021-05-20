@@ -1,6 +1,6 @@
 'use strict';
 /*
-SEARCHHASH v1.2.1
+SEARCHHASH v1.2.2
 ~2KB
 */
 var searchHash=function(){function n(n,t){return JSON.stringify(n)===JSON.stringify(t)&&!e(t)}function t(n){return"string"==typeof n||n instanceof String}function e(n){return n instanceof RegExp}
