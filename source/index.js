@@ -129,6 +129,8 @@ var searchHash = (function() {
         }
     };
 })();
-typeof exports === 'object' &&
-    typeof module !== 'undefined' &&
-    (module.exports = searchHash);
+if (typeof exports === 'object' &&
+    typeof module !== 'undefined') {
+    // eslint-disable-next-line no-undef
+    module.exports = searchHash;
+}
