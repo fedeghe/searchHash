@@ -55,22 +55,22 @@ will find at most 10 elements but only at a deepness between 2 and 4.
 
 The result is an array containing 0 or more elements. The following is one of the element returned from a  search:
 
-``` json
+``` js
 { 
-    "obj": { a: 4, c: "end" },  // the parent obj containig the result
-    "value": 4,                 // the value corresponding to the result
-    "key": "a",                 // the key corresponding to the result
-    "parentKey": "b",           // the key of the parent element
-    "path": "b/b/b/a",          // the absolute path in the obj (in case)
-                                //    of arrays may contain numbers for the 
-                                //    indexes
-    "getter": [Function]        // a function that retuns the result getting
-                                //    it from the original obj
-    "container": "b/b/b",       // path for the container
-    "parentContainer": "b/b",   // path for the grandcontainer
-    "regexp": true,             // in case regexp is used in search contains 
-                                //    the match result
-    "level": 3                  // depth of the result
+    obj: { a: 4, c: 'end' },  // the parent obj containig the result
+    value: 4,                 // the value corresponding to the result
+    key: 'a',                 // the key corresponding to the result
+    parentKey: 'b',           // the key of the parent element
+    path: 'b/b/b/a',          // the absolute path in the obj (in case)
+                              //    of arrays may contain numbers for the 
+                              //    indexes
+    getter: [Function]        // a function that retuns the result getting
+                              //    it from the original obj
+    container: 'b/b/b',       // path for the container
+    parentContainer: 'b/b',   // path for the grandcontainer
+    regexp: true,             // in case regexp is used in search contains 
+                              //    the match result
+    level: 3                  // depth of the result
 }
 ```
 
