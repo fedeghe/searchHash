@@ -1,6 +1,6 @@
 'use strict';
 /*
-SEARCHHASH v1.2.2
+SEARCHHASH v1.2.3
 ~4KB
 */
 var searchHash = (function() {
