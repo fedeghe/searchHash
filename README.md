@@ -10,11 +10,11 @@
 This module allows to search a object literal at any level for:
 - **key**
 - **value**
-- **key**:**value**
+- **key** **\&\&** **value**
 
 RegExp can be used also, for example the following calls are valid:
 
-```
+``` js
 var sh = require('searchHash'),
     obj = require("your/data.json");
 
@@ -26,7 +26,7 @@ var Kres = sh.forKey(obj, 'name'),
 var Vres = sh.forValue(obj, 'Frances'),
     rxVres = sh.forValue(obj, /^fran/i);
 
-// for key:value
+// for key && value
 var KVres = sh.forKeyValue(obj, {key:'name', value : 'Frances'}),
     rxKVres = sh.forKeyValue(obj, {key:/name/, value : /^fran/i}); 
 
@@ -36,8 +36,7 @@ var KresFun = sh.forKey(obj, k => ['one', 'two'].includes(k)),
     KVresFun = sh.forKeyValue(obj, {
         key: k => ['one', 'two'].includes(k),
         value: v => v % 2 === 0
-    }) 
-
+    });
 ``` 
 
 Some options can be passed in a third generic parameter:
@@ -47,29 +46,31 @@ Some options can be passed in a third generic parameter:
 - **max** [Integer]: do not go deeper than that level, included (default `Infinity`)
 
 for example  
-```
+``` js
 rxKres = sh.forKey(obj, /name/, { limit: 10, min: 2, max: 4});
 ```
 will find at most 10 elements but only at a deepness between 2 and 4.
 
 
 
-The result is an array containing 0 or more elements. The following is one of the element from a `forKey` search on a dummy obj, see test1.js):
+The result is an array containing 0 or more elements. The following is one of the element returned from a  search:
 
-```
+``` json
 { 
-    obj: { a: 4, c: 'end' },  // the parent obj containig the result
-    value: 4,                 // the value corresponding to the result
-    key: 'a',                 // the key corresponding to the result
-    parentKey: 'b',           // the key of the parent element
-    path: 'b/b/b/a',          // the absolute path in the obj (in case)
-                              //    of arrays may contain numbers for the 
-                              //    indexes
-    container: 'b/b/b',       // path for the container
-    parentContainer: 'b/b',   // path for the grandcontainer
-    regexp: true,             // in case regexp is used in search contains 
-                              //    the match result
-    level: 3                  // depth of the result
+    "obj": { a: 4, c: "end" },  // the parent obj containig the result
+    "value": 4,                 // the value corresponding to the result
+    "key": "a",                 // the key corresponding to the result
+    "parentKey": "b",           // the key of the parent element
+    "path": "b/b/b/a",          // the absolute path in the obj (in case)
+                                //    of arrays may contain numbers for the 
+                                //    indexes
+    "getter": [Function]        // a function that retuns the result getting
+                                //    it from the original obj
+    "container": "b/b/b",       // path for the container
+    "parentContainer": "b/b",   // path for the grandcontainer
+    "regexp": true,             // in case regexp is used in search contains 
+                                //    the match result
+    "level": 3                  // depth of the result
 }
 ```
 
