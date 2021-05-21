@@ -5,3 +5,4 @@
 /.nyc_output
 .printVersion
 .buildNum.json
+test.js

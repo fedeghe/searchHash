@@ -17,6 +17,14 @@ describe('Search starts', () => {
             const search = sh.forValue(objs, {}, { min: -1, max: 1 });
             assert.strictEqual(1, search.length);
         });
+
+        it('should return a working getter', () => {
+            const search = sh.forValue(objs, "y");
+            assert.strictEqual(2, search.length);
+            assert.strictEqual(search[0].getter(), "y");
+            assert.strictEqual(search[1].getter(), "y");
+        });
+
         it('should skip elements', () => {
             const dom = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`);
             const trg = dom.window.document.querySelector("p");
