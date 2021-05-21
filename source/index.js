@@ -132,6 +132,7 @@ var searchHash = (function() {
         }
     };
 })();
+/* istanbul ignore next */
 if (typeof exports === 'object' &&
     typeof module !== 'undefined') {
     // eslint-disable-next-line no-undef

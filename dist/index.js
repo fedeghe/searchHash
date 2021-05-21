@@ -1,6 +1,6 @@
 'use strict';
 /*
-SEARCHHASH v1.2.4
+SEARCHHASH v1.2.6
 ~4KB
 */
 var searchHash = (function() {
@@ -137,6 +137,7 @@ var searchHash = (function() {
         }
     };
 })();
+/* istanbul ignore next */
 if (typeof exports === 'object' &&
     typeof module !== 'undefined') {
     // eslint-disable-next-line no-undef
