@@ -64,7 +64,7 @@ The result is an array containing 0 or more elements. The following is one of th
     path: 'b/b/b/a',          // the absolute path in the obj (in case)
                               //    of arrays may contain numbers for the 
                               //    indexes
-    getter: [Function]        // a function that retuns the result getting
+    getter: [Function]        // a function that returns the result getting
                               //    it from the original obj
     container: 'b/b/b',       // path for the container
     parentContainer: 'b/b',   // path for the grandcontainer
