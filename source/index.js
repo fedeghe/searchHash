@@ -36,8 +36,8 @@ var searchHash = (function() {
     /**
      * Main searching function
      */
-    function digFor(what, obj, target, opts) {
-        if (!isObj(obj) && !isArr(obj)) throw new Error('BAD PARAM: must search into an object or an array');
+    function digFor(what, rootObj, target, opts) {
+        if (!isObj(rootObj) && !isArr(rootObj)) throw new Error('BAD PARAM: must search into an object or an array');
         var t,
             found = 0,
             strOrRx = function(x, y) {
@@ -75,6 +75,9 @@ var searchHash = (function() {
                         key: p[plen - 1],
                         parentKey: p[plen - 2],
                         path: p.join('/'),
+                        getter: function() {
+                            return p.reduce((acc, el) => acc[el], rootObj);
+                        },
                         container: p.slice(0, plen - 1).join('/'),
                         parentContainer: p.slice(0, plen - 2).join('/'),
                         regexp: tmp,
@@ -113,7 +116,7 @@ var searchHash = (function() {
             opts.min = opts.max;
             opts.max = t;
         }
-        dig(obj, target, [], 0);
+        dig(rootObj, target, [], 0);
         return res;
     }
 
