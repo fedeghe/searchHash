@@ -7,7 +7,7 @@
 > npm install searchhash
 ```
 
-This module allows to search a object literal at any level for:
+This module allows to search into an object literal at any level for:
 - **key**
 - **value**
 - **key** **\&\&** **value**

@@ -1,5 +1,6 @@
 .coveralls.yml
 /coverage
+/.vscode
 /node_modules
 /test
 /.nyc_output
