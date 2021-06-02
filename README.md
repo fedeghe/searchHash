@@ -12,7 +12,7 @@ This module allows to search into an object literal at any level for:
 - **value**
 - **key** **\&\&** **value**
 
-RegExp can be used also, for example the following calls are valid:
+RegExp can be used also, for example the following calls are valid: 
 
 ``` js
 var sh = require('searchHash'),
