@@ -44,6 +44,7 @@ Some options can be passed in a third generic parameter:
 - **limit** [Integer]: stop searching whenever this number of results is reached (default `Infinity`)
 - **min** [Integer]: start from this deepness level, included (default `0`)
 - **max** [Integer]: do not go deeper than that level, included (default `Infinity`)
+- **sorter** [function]: a function to use as sorter for results
 
 for example  
 ``` js

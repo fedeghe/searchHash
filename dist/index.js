@@ -1,7 +1,7 @@
 'use strict';
 /*
 SEARCHHASH v1.2.6
-~4KB
+~5KB
 */
 var searchHash = (function() {
     // some utility func
@@ -122,6 +122,7 @@ var searchHash = (function() {
             opts.max = t;
         }
         dig(rootObj, target, [], 0);
+        if (opts.sorter) return res.sort(opts.sorter);
         return res;
     }
 

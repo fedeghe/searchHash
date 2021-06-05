@@ -117,6 +117,7 @@ var searchHash = (function() {
             opts.max = t;
         }
         dig(rootObj, target, [], 0);
+        if (opts.sorter) return res.sort(opts.sorter);
         return res;
     }
 
