@@ -15,23 +15,23 @@ This module allows to search into an object literal at any level for:
 RegExp can be used also, for example the following calls are valid: 
 
 ``` js
-var sh = require('searchHash'), 
-    obj = require("your/data.json");
+import searchhash from 'searchhash'
+import obj from './../your/data.json'
 
 // for key
-var Kres = sh.forKey(obj, 'name'),
-    rxKres = sh.forKey(obj, /name/);
+const Kres = sh.forKey(obj, 'name'),
+    rxKres = sh.forKey(obj, /name/),
 
-// for value
-var Vres = sh.forValue(obj, 'Frances'),
-    rxVres = sh.forValue(obj, /^fran/i);
+    // for value
+    Vres = sh.forValue(obj, 'Frances'),
+    rxVres = sh.forValue(obj, /^fran/i),
 
-// for key && value
-var KVres = sh.forKeyValue(obj, {key:'name', value : 'Frances'}),
-    rxKVres = sh.forKeyValue(obj, {key:/name/, value : /^fran/i}); 
+    // for key && value
+    KVres = sh.forKeyValue(obj, {key:'name', value : 'Frances'}),
+    rxKVres = sh.forKeyValue(obj, {key:/name/, value : /^fran/i}),
 
-// to search You can as well use a function:
-var KresFun = sh.forKey(obj, k => ['one', 'two'].includes(k)),
+    // to search You can as well use a function:
+    KresFun = sh.forKey(obj, k => ['one', 'two'].includes(k)),
     VresFun = sh.forValue(obj, v => v % 2 === 0),
     KVresFun = sh.forKeyValue(obj, {
         key: k => ['one', 'two'].includes(k),
