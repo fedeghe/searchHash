@@ -1667,7 +1667,7 @@ malta-header-comment@^1.0.5:
   resolved "https://registry.yarnpkg.com/malta-header-comment/-/malta-header-comment-1.0.10.tgz#05de5cc9a4461cd246f398c71d7802621c3c7c4c"
   integrity sha512-emrfCi0fbVgAuvqSzWsulcNUH6S2QD4tRPE+XyjNaTXwu583+usfbnncT3B2sPGw+Op78hnhTh/FzMOMAk3naQ==
 
-malta-js-uglify@^1.0.2:
+malta-js-uglify@^1.0.5:
   version "1.0.13"
   resolved "https://registry.yarnpkg.com/malta-js-uglify/-/malta-js-uglify-1.0.13.tgz#757a6201646437946dc50f2ef17b4c84cd82a071"
   integrity sha512-bu6D0YgO8O2uUEBCehwdwOcAVY+yXfFk24fDBeFam+Ee8nx5RUw6iXQfSArybkZaj7jEhGLhP2FN6IksClvAZA==
@@ -1681,10 +1681,10 @@ malta-mocha@^1.0.11:
   dependencies:
     mocha "^8.1.1"
 
-malta@^4.1.27:
-  version "4.1.27"
-  resolved "https://registry.yarnpkg.com/malta/-/malta-4.1.27.tgz#09cd7b16a698f8aaa37682c9e284c48a731d0dfc"
-  integrity sha512-LX1OFH6smY5BJOAozWAE4XBwpbZ/qsempxINijkTIEKrnCDxwnqqVVsCFtLldBExWNWVaj7wiNDxEzZZYW25tg==
+malta@^4.1.28:
+  version "4.1.28"
+  resolved "https://registry.yarnpkg.com/malta/-/malta-4.1.28.tgz#8256257d107bf482184b3d1aa5298c84764b9497"
+  integrity sha512-WS2KL+KTPZxjipARQ6tgMJKuO4LPFNzZjJd9s5Ga9GJ6EEvVVZIZcyZf5WNIe8ammSMcxwSPwut2ywpki66bvQ==
 
 merge-source-map@^1.1.0:
   version "1.1.0"

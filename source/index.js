@@ -76,7 +76,7 @@ var searchHash = (function() {
                         parentKey: p[plen - 2],
                         path: p.join('/'),
                         getter: function() {
-                            return p.reduce((acc, el) => acc[el], rootObj);
+                            return p.reduce(function(acc, el) { return acc[el]; }, rootObj);
                         },
                         container: p.slice(0, plen - 1).join('/'),
                         parentContainer: p.slice(0, plen - 2).join('/'),
