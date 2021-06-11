@@ -1,6 +1,6 @@
 First of all you need to install all develoment dependencies:  
 ```
-> yarn 
+> yarn  
 ```
 
 
