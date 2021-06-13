@@ -6,7 +6,7 @@ First of all you need to install all develoment dependencies:
 
 # development build from source
 
-Will watch any relevant change in the source folder (tests included) and will run the tests all the times.
+Will watch any relevant change in the source folder (tests included) and will run the tests all the times.  
 
 Run
 ```
