@@ -1803,10 +1803,10 @@ malta-mocha@^1.0.11:
   dependencies:
     mocha "^8.1.1"
 
-malta@^4.1.28:
-  version "4.1.34"
-  resolved "https://registry.yarnpkg.com/malta/-/malta-4.1.34.tgz#78c28524dbf767344a6d9de0bfb932da299d7834"
-  integrity sha512-VtwE6JYKudZSv8FkDk2NFZ9TnAqHeflmZYNWFD2DHun/eOm9+QqjM12GRn0WERma+7SyNJCcp/aD4ZBIeLHgCg==
+malta@^4.1.35:
+  version "4.1.35"
+  resolved "https://registry.yarnpkg.com/malta/-/malta-4.1.35.tgz#907cf08ca8970f45dd6410605dd828e1d8a8baa9"
+  integrity sha512-RlzKWVeNyEIp0T4gsI58MmxaDz4y5DHxJOKKjUjBQRstL65+OJUiLT2JR32y7ObzC7fnWRS/TrkCAqgjnhaiSg==
 
 merge-source-map@^1.1.0:
   version "1.1.0"
