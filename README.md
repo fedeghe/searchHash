@@ -15,7 +15,7 @@ This module allows to search into an object literal at any level for:
 RegExp can be used also, for example the following calls are valid: 
 
 ``` js
-import searchhash from 'searchhash'
+import sh from 'searchhash'
 import obj from './../your/data.json'
 
 // for key
@@ -42,7 +42,7 @@ const Kres = sh.forKey(obj, 'name'),
 Some options can be passed in a third generic parameter:
 
 - **limit** [Integer]: stop searching whenever this number of results is reached (default `Infinity`)
-- **min** [Integer]: start from this deepness level, included (default `0`)
+- **min** [Integer]: start from that depth level, included (default `0`)
 - **max** [Integer]: do not go deeper than that level, included (default `Infinity`)
 - **sorter** [function]: a function to be used to sort the results
 
@@ -75,4 +75,4 @@ The result is an array containing 0 or more elements. The following is one of th
 }
 ```
 
-To run the tests and  know more about the implementation just README.md into the source folder.
+To run the tests and know more about the implementation just get a look at the README.md into the source folder.
