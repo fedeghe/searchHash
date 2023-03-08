@@ -89,7 +89,7 @@ var searchHash = (function() {
             },
             dig = function(o, k, objpath, level) {
                 if (isElement(o)) {
-                    console.log('ELEMENT');
+                    // console.log('ELEMENT');
                     return;
                 }
                 var i, l;
