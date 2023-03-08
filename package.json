@@ -1,10 +1,10 @@
 {
     "name": "searchhash",
-    "version": "1.2.10",
+    "version": "1.2.11",
     "description": "Simple module to search into object literals for values or keys",
     "main": "dist/index.js",
     "scripts": {
-        "buildev": "malta source/buildev.json",
+        "dev": "malta source/buildev.json",
         "build": "malta source/buildtr.json",
         "test": "mocha",
         "lint": "eslint source",
