@@ -1,5 +1,5 @@
 [![Coverage Status](https://coveralls.io/repos/github/fedeghe/searchHash/badge.svg?branch=master)](https://coveralls.io/github/fedeghe/searchHash?branch=master)
-![noai](https://www.jmvc.org/img/HumanCoded100.png?x=1)
+![noai](https://www.jmvc.org/img/HumanCoded100.png?x=2)
 
 # searchHash  
 
