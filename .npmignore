@@ -4,4 +4,6 @@
 /node_modules
 /test
 /source
+/.nyc_output
 .printVersion
+.buildNum.json
