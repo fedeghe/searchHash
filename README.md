@@ -1,7 +1,7 @@
-[![Coverage Status](https://coveralls.io/repos/github/fedeghe/searchHash/badge.svg?branch=master)](https://coveralls.io/github/fedeghe/searchHash?branch=master)
-![noai](https://www.jmvc.org/img/HumanCoded100.png?x=2)
+[![codecov](https://codecov.io/gh/fedeghe/searchHash/graph/badge.svg?token=flYAEwdNh3)](https://codecov.io/gh/fedeghe/searchHash)
+![Static Badge](https://img.shields.io/badge/Human%20coded-100%25-blue?style=plastic)
 
-# searchHash  
+# searchHash (v 1.2.13)
 
 ```
 > npm install searchhash

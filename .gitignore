@@ -1,9 +1,7 @@
-.coveralls.yml
 /coverage
 /.vscode
 /node_modules
-/test
-/.nyc_output
+/tests
 .printVersion
 .buildNum.json
 test.js

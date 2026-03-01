@@ -1,5 +1,4 @@
-const assert = require('assert'),
-    JSDOM = require('jsdom').JSDOM,
+const JSDOM = require('jsdom').JSDOM,
     sh = require('../dist/index.js'),
     objs = require('./data/deeper.json');
 
@@ -7,22 +6,22 @@ describe('Search starts', () => {
     describe('few edge cases', () => {
         it('should find 2 elements', () => {
             const search = sh.forValue({}, 'y');
-            assert.strictEqual(0, search.length);
+            expect(search.length).toBe(0);
         });
         it('should find 2 elements', () => {
             const search = sh.forValue(objs, {}, { min: 2, max: 1 });
-            assert.strictEqual(1, search.length);
+            expect(search.length).toBe(1);
         });
         it('should find 2 elements', () => {
             const search = sh.forValue(objs, {}, { min: -1, max: 1 });
-            assert.strictEqual(1, search.length);
+            expect(search.length).toBe(1);
         });
 
         it('should return a working getter', () => {
             const search = sh.forValue(objs, "y");
-            assert.strictEqual(2, search.length);
-            assert.strictEqual(search[0].getter(), "y");
-            assert.strictEqual(search[1].getter(), "y");
+            expect(search.length).toBe(2);
+            expect("y").toBe(search[0].getter());
+            expect("y").toBe(search[1].getter());
         });
 
         it('should skip elements', () => {
@@ -30,7 +29,7 @@ describe('Search starts', () => {
             const trg = dom.window.document.querySelector("p");
             trg.sss = 'hei'
             const search = sh.forValue({ s: trg, hoho: 'hei' }, 'hei');
-            assert.strictEqual(1, search.length);
+            expect(search.length).toBe(1);
         });
         describe('should throw an error', () => {
             const f = () => sh.forKey('str', /str/);
@@ -39,7 +38,7 @@ describe('Search starts', () => {
                 try {
                     f()
                 } catch (e) {
-                    assert.strictEqual(e.message, 'BAD PARAM: must search into an object or an array');
+                    expect('BAD PARAM: must search into an object or an array').toBe(e.message);
                 }
 
             });

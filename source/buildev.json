@@ -1,9 +1,10 @@
 {
     "EXE": [
-        "rm -rf test dist",
-        "mkdir -p test/data dist",
-        "cp source/test/data/*.json test/data/"
+        "rm -rf tests dist",
+        "mkdir -p tests/data dist",
+        "cp source/tests/data/*.json tests/data/"
     ],
-    "source/test/*.js": "test -plugins=malta-mocha",
-    "source/index.js": "dist"
+    "source/tests/*.js": "tests -plugins=malta-jest",
+    "source/index.js": "dist",
+    "source/README.md": "."
 }

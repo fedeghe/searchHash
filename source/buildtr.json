@@ -1,8 +1,9 @@
 {
     "EXE": [
-        "mkdir -p test/data dist",
-        "cp source/test/data/*.json test/data/"
+        "mkdir -p tests/data dist",
+        "cp source/tests/data/*.json tests/data/"
     ],
-    "#source/test/*.js": "test -options=verbose:0",
-    "#source/index.js": "dist/. -plugins=malta-js-uglify...malta-header-comment[name:\"source/head.txt\"] -options=verbose:0"
+    "#source/tests/*.js": "tests",
+    "#source/index.js": "dist/. -plugins=malta-js-uglify...malta-header-comment[name:\"source/head.txt\"]",
+    "#source/README.md": "."
 }
